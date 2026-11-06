@@ -1,0 +1,6 @@
+// Точка входу. Збирається в css/main.css
+@use "variables";
+@use "mixins";
+@use "base";
+@use "layout";
+@use "components";

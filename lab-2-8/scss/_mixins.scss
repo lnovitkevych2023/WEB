@@ -1,0 +1,28 @@
+@use "variables" as v;
+
+// media query для mobile first
+@mixin respond-to($breakpoint) {
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin container {
+  width: min(100% - 32px, v.$container-max);
+  margin-inline: auto;
+}
+
+// спільний вигляд для карток
+@mixin card {
+  padding: v.$space-md + 2px v.$space-lg - 4px;
+  background: v.$color-surface;
+  border: 1px solid v.$color-border;
+  border-radius: v.$radius;
+  transition: box-shadow v.$transition, transform v.$transition, border-color v.$transition;
+}

@@ -1,0 +1,121 @@
+@use "variables" as v;
+@use "mixins" as m;
+
+.container {
+  @include m.container;
+}
+
+// ---------- Header ----------
+.site-header {
+  padding: v.$space-md 0;
+  border-bottom: 1px solid v.$color-border;
+}
+
+.header__inner {
+  display: flex;
+  flex-direction: column;
+  gap: v.$space-md;
+
+  @include m.respond-to(v.$bp-tablet) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+// ---------- Hero ----------
+.hero {
+  padding: v.$space-xl 0;
+  background: v.$color-hero;
+}
+
+.hero__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: v.$space-lg;
+
+  @include m.respond-to(v.$bp-tablet) {
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+  }
+}
+
+.hero__image {
+  position: relative;
+
+  img {
+    width: 100%;
+    max-height: 320px;
+    object-fit: cover;
+    border-radius: v.$radius;
+  }
+}
+
+// ---------- Секції ----------
+.section {
+  padding: v.$space-lg 0 v.$space-sm;
+}
+
+// П'ять карток: 1 -> 2 -> 5
+.monitoring-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: v.$space-md;
+
+  @include m.respond-to(v.$bp-tablet) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include m.respond-to(v.$bp-desktop) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+// Чотири картки: 1 -> 2 -> 4
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: v.$space-md;
+
+  @include m.respond-to(v.$bp-tablet) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include m.respond-to(v.$bp-desktop) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+// ---------- Footer ----------
+.site-footer {
+  margin-top: v.$space-xl;
+  padding: v.$space-xl - 8px 0;
+  color: #c9d3dd;
+  background: v.$color-footer;
+}
+
+.footer__inner {
+  display: flex;
+  flex-direction: column;
+  gap: v.$space-lg;
+
+  @include m.respond-to(v.$bp-tablet) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.footer__nav {
+  display: flex;
+  flex-direction: column;
+  gap: v.$space-sm + 4px;
+  margin-bottom: v.$space-sm;
+
+  @include m.respond-to(v.$bp-tablet) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: v.$space-lg;
+  }
+}

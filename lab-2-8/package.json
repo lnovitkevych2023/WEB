@@ -1,0 +1,17 @@
+{
+  "name": "acoustic-watch",
+  "version": "1.0.0",
+  "description": "Лабораторна №8: робота з даними з API на TypeScript",
+  "scripts": {
+    "sass": "sass --watch scss/main.scss:css/main.css",
+    "build:css": "sass scss/main.scss css/main.css --no-source-map",
+    "build": "tsc",
+    "watch": "tsc --watch"
+  },
+  "author": "Новіткевич Лілія",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.80.0",
+    "typescript": "^5.6.0"
+  }
+}

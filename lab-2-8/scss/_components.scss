@@ -1,0 +1,349 @@
+@use "variables" as v;
+@use "mixins" as m;
+
+// ---------- Логотип і навігація ----------
+.brand__name {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.brand__slogan {
+  display: block;
+  font-size: 0.95rem;
+  color: v.$color-muted;
+}
+
+.main-nav {
+  display: flex;
+  flex-direction: column;
+  gap: v.$space-xs;
+
+  @include m.respond-to(v.$bp-tablet) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: v.$space-md;
+  }
+
+  &__link {
+    padding: v.$space-xs v.$space-sm;
+    border-bottom: 2px solid transparent;
+    transition: color v.$transition, border-color v.$transition;
+
+    &:hover,
+    &--active {
+      color: v.$color-primary;
+      border-bottom-color: v.$color-primary;
+    }
+  }
+}
+
+// ---------- Hero ----------
+.hero {
+  h1 {
+    font-size: clamp(1.8rem, 6vw, 2.9rem);
+    margin-bottom: v.$space-md;
+  }
+
+  p {
+    font-size: 1.05rem;
+    color: #3a4654;
+  }
+}
+
+.muted {
+  color: v.$color-muted;
+  margin-bottom: v.$space-lg;
+}
+
+.sensor-badge {
+  @include m.flex-center;
+  position: absolute;
+  top: v.$space-md;
+  left: v.$space-md;
+  width: 54px;
+  height: 54px;
+  font-weight: 700;
+  color: v.$color-white;
+  background: v.$color-primary;
+  border-radius: 50%;
+  transform: rotate(-12deg) scale(0.9);
+  transition: transform v.$transition;
+
+  &:hover {
+    transform: rotate(0) scale(1.1);
+  }
+}
+
+// ---------- Кнопка ----------
+.button {
+  display: inline-block;
+  padding: 13px 26px;
+  font-weight: 600;
+  color: v.$color-white;
+  background: v.$color-primary;
+  border: none;
+  border-radius: v.$radius;
+  cursor: pointer;
+  transition: background-color v.$transition, transform v.$transition;
+
+  &:hover {
+    background: v.$color-primary-dark;
+    transform: translateY(-2px);
+  }
+}
+
+// ---------- Картки ----------
+.info-card {
+  @include m.card;
+  display: flex;
+  flex-direction: column;
+  gap: v.$space-xs;
+
+  &:hover {
+    box-shadow: 0 6px 16px rgba(20, 33, 61, 0.12);
+    transform: translateY(-3px);
+  }
+
+  &__label {
+    font-size: 0.9rem;
+    color: v.$color-muted;
+  }
+
+  &__value {
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+
+  &__note {
+    font-size: 0.82rem;
+    color: v.$color-muted;
+  }
+}
+
+.status {
+  align-self: flex-start;
+  padding: 2px 10px;
+  font-size: 0.9rem;
+  border-radius: 3px;
+
+  &--ok {
+    color: v.$color-success;
+    background: v.$color-success-bg;
+  }
+}
+
+.service-card {
+  @include m.card;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    border-color: v.$color-primary;
+  }
+
+  p {
+    font-size: 0.95rem;
+    color: v.$color-muted;
+  }
+}
+
+// ---------- Попередження ----------
+.warning {
+  position: relative;
+  width: 100%;
+  margin: v.$space-lg 0 v.$space-sm;
+  padding: v.$space-md;
+  background: v.$color-danger-bg;
+  border: 1px solid v.$color-danger;
+  border-radius: v.$radius;
+
+  h2 {
+    margin-top: 0;
+    margin-bottom: v.$space-xs;
+    color: v.$color-danger;
+  }
+
+  &__tag {
+    position: absolute;
+    top: v.$space-sm + 4px;
+    right: v.$space-md;
+    padding: 2px v.$space-sm;
+    font-size: 0.75rem;
+    color: v.$color-white;
+    background: v.$color-danger;
+    border-radius: 10px;
+  }
+}
+
+// ---------- Таблиця ----------
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+
+  table {
+    width: 100%;
+    min-width: 640px;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+  }
+
+  th,
+  td {
+    padding: v.$space-sm v.$space-md;
+    text-align: left;
+    border: 1px solid v.$color-border;
+  }
+
+  th {
+    background: #e8eef4;
+  }
+}
+
+.text-ok {
+  color: v.$color-success;
+}
+
+.text-danger,
+.level--high {
+  color: v.$color-danger;
+}
+
+// ---------- Форма ----------
+.order-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: v.$space-md;
+
+  @include m.respond-to(v.$bp-desktop) {
+    grid-template-columns: 2fr 1fr;
+    align-items: start;
+  }
+
+  &__fields {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: v.$space-md;
+
+    @include m.respond-to(v.$bp-tablet) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__actions {
+    grid-column: 1 / -1;
+  }
+
+  label {
+    display: block;
+    margin: v.$space-sm 0 6px;
+    font-size: 0.95rem;
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+    max-width: 100%;
+    padding: v.$space-sm v.$space-md - 2px;
+    border: 1px solid #c9d6e2;
+    border-radius: 4px;
+    background: v.$color-white;
+
+    &:focus {
+      outline: none;
+      border-color: v.$color-primary;
+    }
+  }
+
+  textarea {
+    min-height: 118px;
+    resize: vertical;
+  }
+}
+
+.required {
+  color: v.$color-danger;
+}
+
+// ---------- Footer ----------
+.site-footer {
+  .brand__name {
+    color: v.$color-white;
+    font-size: 1.25rem;
+  }
+
+  p {
+    font-size: 0.875rem;
+  }
+
+  a:hover {
+    color: #7fd39f;
+  }
+}
+
+.footer__nav a {
+  color: v.$color-white;
+}
+
+// ---------- Картки сенсорів (ЛР5) ----------
+.sensors-summary {
+  margin-bottom: v.$space-md;
+  color: v.$color-muted;
+}
+
+.sensor-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: v.$space-md;
+}
+
+.sensor-card {
+  @include m.card;
+  border-left-width: 5px;
+
+  p {
+    font-size: 0.92rem;
+    color: v.$color-muted;
+  }
+
+  & &__level {
+    margin: v.$space-sm 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: v.$color-text;
+  }
+
+  &--normal {
+    border-left-color: v.$color-success;
+  }
+
+  &--warning {
+    border-left-color: #f0a500;
+  }
+
+  &--critical {
+    border-left-color: v.$color-danger;
+    background: #fff6f6;
+  }
+}
+
+// ---------- Сенсори з API (ЛР7) ----------
+.sensors__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: v.$space-md;
+}
+
+.sensor-card--active {
+  border-left-color: v.$color-primary;
+}
+
+.sensor-card--inactive {
+  border-left-color: #9aa5b1;
+  opacity: 0.75;
+}
+
+.load-error {
+  color: v.$color-danger;
+}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="images/favicon.png" type="image/png">
+  <title>Запропонувати місто — Мої 3 найкращі міста світу</title>
+</head>
+<body>
+
+  <header>
+    <p><a href="index.html">Мої 3 найкращі міста світу</a></p>
+    <nav>
+      <ul>
+        <li><a href="index.html">Головна</a></li>
+        <li><a href="city-lviv.html">Львів</a></li>
+        <li><a href="city-amsterdam.html">Амстердам</a></li>
+        <li><a href="city-netishyn.html">Нетішин</a></li>
+        <li><a href="form.html">Запропонувати місто</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h1>Запропонувати місто для наступного рейтингу</h1>
+      <p>Знаєте місто, яке варто додати? Заповніть форму. Поля з * обов'язкові.</p>
+
+      <form action="#" method="post">
+        <fieldset>
+          <legend>Про вас</legend>
+
+          <p>
+            <label for="name">Ваше ім'я *</label><br>
+            <input type="text" id="name" name="name" required>
+          </p>
+
+          <p>
+            <label for="email">Email *</label><br>
+            <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
+          </p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Про місто</legend>
+
+          <p>
+            <label for="city">Назва міста *</label><br>
+            <input type="text" id="city" name="city" required>
+          </p>
+
+          <p>
+            <label for="country">Країна</label><br>
+            <select id="country" name="country">
+              <option value="">Оберіть країну</option>
+              <option value="ukraine">Україна</option>
+              <option value="poland">Польща</option>
+              <option value="netherlands">Нідерланди</option>
+              <option value="italy">Італія</option>
+              <option value="japan">Японія</option>
+              <option value="other">Інша</option>
+            </select>
+          </p>
+
+          <p>Тип пропозиції *</p>
+          <p>
+            <input type="radio" id="type-visit" name="type" value="visited" required>
+            <label for="type-visit">Я там був(ла)</label><br>
+            <input type="radio" id="type-dream" name="type" value="dream">
+            <label for="type-dream">Хочу туди поїхати</label>
+          </p>
+
+          <p>
+            <label for="rating">Ваша оцінка міста (1–10)</label><br>
+            <input type="number" id="rating" name="rating" min="1" max="10">
+          </p>
+
+          <p>
+            <label for="reason">Чому варто відвідати це місто? *</label><br>
+            <textarea id="reason" name="reason" rows="5" cols="50" required></textarea>
+          </p>
+
+          <p>
+            <input type="checkbox" id="agree" name="agree" required>
+            <label for="agree">Погоджуюсь, що мою пропозицію можуть опублікувати в блозі</label>
+          </p>
+        </fieldset>
+
+        <p>
+          <button type="submit">Надіслати</button>
+          <button type="reset">Очистити</button>
+        </p>
+      </form>
+    </section>
+
+    <p><a href="index.html">← Повернутися на головну</a></p>
+  </main>
+
+  <footer>
+    <p>Автор: Новіткевич Лілія, КН-41, 2026</p>
+  </footer>
+
+</body>
+</html>
